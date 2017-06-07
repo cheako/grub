@@ -226,10 +226,13 @@ EOF
 }
 EOF
     ;;
-    linux)
-      if [ "x$BTRFS" = "xbtrfs" ]; then
-         LINUXPROBED="`linux-boot-prober btrfs ${BTRFSuuid} ${BTRFSsubvol}  2> /dev/null | tr ' ' '^' | paste -s -d ' '`"
+    linux|linux-subvolid)
+      if [ "x$BOOT" = "xlinux-subvol" ]; then
+	 SUBVOLID=${DEVICE#*@}
+	 DEVICE=${DEVICE%%@*}
+         LINUXPROBED="`linux-boot-prober ${DEVICE} ${SUBVOLID} 2> /dev/null | tr ' ' '^' | paste -s -d ' '`"
       else
+	 SUBVOLID=""
          LINUXPROBED="`linux-boot-prober ${DEVICE} 2> /dev/null | tr ' ' '^' | paste -s -d ' '`"
       fi
       prepare_boot_cache=
