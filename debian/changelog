@@ -1,3 +1,9 @@
+grub2 (2.02~beta3-5~cheako0) xenial; urgency=medium
+ 
+  * Support proposed os-prober subvol patches
+
+ -- Mike Mestnik <cheako+apt_repo@mikemestnik.net>  Tue, 06 Jun 2017 17:08:05 -0500
+
 grub2 (2.02~beta3-5) unstable; urgency=medium
 
   [ Steve McIntyre ]
